@@ -1,0 +1,27 @@
+{
+  "users": [
+    {
+      "id": 2,
+      "firstname": "Shalaka",
+      "lastname": "Pingale",
+      "email": "shalakapingale49@gmail.com",
+      "mobile": "9359617903",
+      "salary": "45000"
+    },
+    {
+      "id": 4,
+      "firstname": "Shalaka",
+      "lastname": "sona@gmail.com",
+      "email": "sona@gmail.com",
+      "mobile": "sona@gmail.com",
+      "salary": "50000"
+    }
+  ],
+  "feedback": [
+    {
+      "id": 1,
+      "message": "Nice",
+      "rating": 4
+    }
+  ]
+}
