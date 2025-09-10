@@ -17,11 +17,20 @@
       "salary": "50000"
     }
   ],
-  "feedback": [
+  "signupUsers": [
     {
-      "id": 1,
-      "message": "Nice",
-      "rating": 4
+      "username": "shalaka",
+      "mobile": "9359617903",
+      "email": "shalakapingale49@gmail.com",
+      "password": "Shalaka@4993",
+      "id": 1
+    },
+    {
+      "username": "Sonali",
+      "mobile": "8446295707",
+      "email": "sona@gmail.com",
+      "password": "sona@123",
+      "id": 2
     }
   ]
 }
