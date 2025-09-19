@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { EmployeeModel } from './employee-dashboard.model';
 import { ApiService } from '../shared/api.service';
+import { EmployeeModel } from '../model/employee.model';
 
 @Component({
   selector: 'app-employee-dashboard',
@@ -11,7 +11,7 @@ import { ApiService } from '../shared/api.service';
 export class EmployeeDashboardComponent implements OnInit {
 
   formValue !: FormGroup;
-  employeeObj : EmployeeModel = new EmployeeModel();
+  public employeeObj  = new EmployeeModel();
   employeeData : any;
   showAdd !:boolean;
   showupdate !:boolean;
@@ -35,11 +35,11 @@ export class EmployeeDashboardComponent implements OnInit {
   }
 
   postEmployeeDetails(){
-      this.employeeObj.firstname = this.formValue.value.firstname;
-      this.employeeObj.lastname = this.formValue.value.lastname;
-      this.employeeObj.email = this.formValue.value.email;
-      this.employeeObj.mobile = this.formValue.value.mobile;
-      this.employeeObj.salary = this.formValue.value.salary;
+      this.employeeObj.FirstName = this.formValue.value.firstname;
+      this.employeeObj.LastName = this.formValue.value.lastname;
+      this.employeeObj.Email = this.formValue.value.email;
+      this.employeeObj.Mobile = this.formValue.value.mobile;
+      this.employeeObj.Salary = this.formValue.value.salary;
 
       this.api.postEmployee(this.employeeObj)
       .subscribe((res:any)=>{
@@ -58,7 +58,8 @@ export class EmployeeDashboardComponent implements OnInit {
     getEmployeeDetails(){
       this.api.getEmployee()
       .subscribe(res=>{
-        this.employeeData = res;
+        this.employeeData = res.employeeDetails;
+        console.log("getEmployeeDetails"+res.employeeDetails);
       })
     }
 
@@ -73,22 +74,22 @@ export class EmployeeDashboardComponent implements OnInit {
     onEdit(row:any){
       this.showAdd =false;
     this.showupdate= true;
-      this.employeeObj.id = row.id;
-      this.formValue.controls['firstname'].setValue(row.firstname);
-      this.formValue.controls['lastname'].setValue(row.lastname);
+      this.employeeObj.Id = row.id;
+      this.formValue.controls['firstname'].setValue(row.firstName);
+      this.formValue.controls['lastname'].setValue(row.lastName);
       this.formValue.controls['email'].setValue(row.email);
       this.formValue.controls['mobile'].setValue(row.mobile);
       this.formValue.controls['salary'].setValue(row.salary);
     }
 
     updateEmployeeDetails(){
-      this.employeeObj.firstname = this.formValue.value.firstname;
-      this.employeeObj.lastname = this.formValue.value.lastname;
-      this.employeeObj.email = this.formValue.value.email;
-      this.employeeObj.mobile = this.formValue.value.mobile;
-      this.employeeObj.salary = this.formValue.value.salary;
-
-      this.api.updateEmployee(this.employeeObj,this.employeeObj.id)
+      this.employeeObj.FirstName = this.formValue.value.firstname;
+      this.employeeObj.LastName = this.formValue.value.lastname;
+      this.employeeObj.Email = this.formValue.value.email;
+      this.employeeObj.Mobile = this.formValue.value.mobile;
+      this.employeeObj.Salary = this.formValue.value.salary;
+      console.log("updateEmployeeDetails "+this.formValue.value.firstname);
+      this.api.updateEmployee(this.employeeObj)
       .subscribe(res=>{
         alert("Employee updated Successfully");
         let ref= document.getElementById('cancel');

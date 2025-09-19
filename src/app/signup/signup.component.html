@@ -28,7 +28,16 @@
     <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
     <span class="text-danger" *ngIf="signupForm.controls['password'].dirty && signupForm.hasError('required','password')">*Password is required</span>
   </div>
-  <button type="submit" [disabled]="!signupForm.valid" class="btn btn-light">Signup</button>  
+  <div>
+    <label for="exampleInputPassword1" class="form-label">UserType </label>
+    <select formControlName="usertype" class="form-select" aria-label="Default select example">
+  <option selected value="">select UserType</option>
+  <option value="Admin">Admin</option>
+  <option value="User">User</option>  
+</select>
+<span class="text-danger" *ngIf="signupForm.controls['usertype'].dirty && signupForm.hasError('required','usertype')">*UserType is required</span>
+  </div>
+  <button type="submit" [disabled]="!signupForm.valid" class="btn btn-light mt-4">Signup</button>  
                 </form>
 <a style="color: #fff; margin-top: 10px;" routerLink="/login">Already registered? Click to Login!!</a>
             </div>

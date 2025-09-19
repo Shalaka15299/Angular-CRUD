@@ -45,6 +45,14 @@
       "email": "raj@gmail.com",
       "password": "raj123",
       "id": 4
+    },
+    {
+      "username": "Snehal",
+      "mobile": "9506034455",
+      "email": "snehal@gmail.com",
+      "password": "123",
+      "usertype": "2",
+      "id": 5
     }
   ]
 }
